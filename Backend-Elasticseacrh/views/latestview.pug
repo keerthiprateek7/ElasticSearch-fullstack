@@ -1,0 +1,42 @@
+doctype html
+html(lang='en')
+  head
+    title Constituencies
+    link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/semantic.min.css')
+    style.
+      table.ui.celled img { display: inline-block; }
+      footer { margin: 35px 0 15px 0; text-align: center }
+  body
+    main#main
+    h3.ui.center.aligned.header did you mean search constituencies with "#{searchItem}"
+    h1.ui.center.aligned.header Constituencies in England with : #{searchItem}
+    .ui.container
+      table.ui.celled.table.center.aligned
+        thead
+          tr
+            th Constituency Name
+            th ConstituencyID
+            th Constituencytype
+            th Electorate
+            th Valid votes
+            th Region ID
+            th County
+            th Region
+            th Country
+        tbody
+          each val in data
+            tr
+              td #{val._source.constituencyname}
+              td #{val._source.constituencyID}
+              td #{val._source.constituencytype}
+              td #{val._source.electorate}
+              td #{val._source.validvotes}
+              td #{val._source.regionID}
+              td #{val._source.county}
+              td #{val._source.region}
+              td #{val._source.country}
+        tfoot
+          tr
+            th(colspan='6')
+    footer
+      h3.p © #{new Date().getFullYear()}  Didn't plan to have a company yet

@@ -1,0 +1,15 @@
+html
+  head
+    title= title
+  body
+    h1= 'Constituencies in England with :'
+    ul
+      each val in data
+        h2.text-white=val._source.constituencyname 
+        li= val._source.constituencyID
+        li= val._source.constituencytype
+        li= val._source.regionID
+        li= val._source.county
+        li= val._source.region
+
+    
